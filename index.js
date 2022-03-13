@@ -41,7 +41,7 @@ const addPessoa = (request, response, next) => {
 
 const updatePessoa = (request, response, next) => {
     const { codigo, nome, idade } = request.body
-    pool.query('UPDATE pessoas set nome=$1, idade=$2 where codigo=$2',
+    pool.query('UPDATE pessoas set nome=$1, idade=$2 where codigo=$3',
         [nome, idade, codigo], error => {
             if (error) {
                 return response.status(401).json({
